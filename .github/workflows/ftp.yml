@@ -11,6 +11,6 @@ jobs:
     - name: 📂 Sync files
       uses: SamKirkland/FTP-Deploy-Action@v4.3.5
       with:
-        server: ftp.violaonlinestore.com
+        server: violaonlinestore.com
         username: violaon
         password: ${{ secrets.ftp_password }}
