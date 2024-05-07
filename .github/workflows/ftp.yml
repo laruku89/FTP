@@ -11,8 +11,8 @@ jobs:
     - name: 📂 Sync files
       uses: SamKirkland/FTP-Deploy-Action@v4.3.5
       with:
-        server: violaonlinestore
+        server: violaonlinestore.com
         username: violaon
         password: 12345
        # protocol: ftps
-        port: 2087 # todo replace with your web hosts ftps port
+        port: 21 # todo replace with your web hosts ftps port
