@@ -13,6 +13,6 @@ jobs:
       with:
         server: ftp.violaonlinestore.com
         username: violaon
-        password: ${{ secrets.FTP_PASSWORD }}
+        password: 12345
         protocol: ftps
         port: 2087 # todo replace with your web hosts ftps port
