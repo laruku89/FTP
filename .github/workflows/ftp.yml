@@ -1,20 +1,23 @@
 on:
   push:
-    branches:
-      main
+    branches: [ ftp ]
+name: 🚀 Deploy website on push
 jobs:
-    deploy_job:
-      runs-on: ubuntu-latest
-      name: deploy
-      steps:
-        - name: Checkout
-          uses: actions/checkout@v2
-        - name: Deploy file
-          uses: wlixcc/SFTP-Deploy-Action@v1.2.4
-          with:
-            username: violaon
-            password: 12345
-            server: violaonlinestore.com
-            port: 22
-            remote_path: /home/violaon/public_html
-            sftp_only: true
+  web-deploy:
+    name: 🎉 Auto Deploy
+    runs-on: ubuntu-latest
+    steps:
+    - name: 🚚 Get latest code
+      uses: actions/checkout@v2.3.2
+
+    - name: 📂 Sync files
+      uses: SamKirkland/FTP-Deploy-Action@4.0.0
+      with:
+        server: ${{ secrets.FTP_SERVER }}
+        username: ${{ secrets.FTP_USER }}
+        password: ${{ secrets.FTP_PASS }}
+        protocol: ftps
+        port: ${{ secrets.FTP_PORT }}
+        exclude: .git*
+          - .git*/**
+          - .github
